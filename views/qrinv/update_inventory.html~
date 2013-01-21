@@ -1,0 +1,53 @@
+{{extend 'plugin_jqmobilelayout.html'}}
+{{if row:}}
+{{=record.custom.begin}}
+<table>
+<tr>
+<div> <th> Make:</th>  <td>{{=record.custom.widget.manuf}}</td> </div>
+</tr>
+<tr>
+<div> <th> Part Number: </th> <td> {{=record.custom.widget.partnum}}</td> </div>
+</tr>
+<tr>
+<div> <th> Description: </th> <td> {{=record.custom.widget.description}}</td> </div>
+</tr>
+<tr>
+<div> <th> Wholsale Price: </th> <td> {{=record.custom.widget.whol_price}}</td> </div>
+</tr>
+<tr>
+<div> <th> Retail Price: </th> <td> {{=record.custom.widget.ret_price}}</td> </div>
+</tr>
+</table>
+
+<fieldset>
+<table>
+<legend>Stock</legend>
+<tr>
+{{record.custom.widget.grjr_van['_type'] = 'number'}}
+<div> <th> George Jr: </th> <td>{{=record.custom.widget.grjr_van}}</td> </div>
+</tr><tr>
+{{record.custom.widget.josh_van['_type'] = 'number'}}
+<div> <th> Josh: </th> <td>{{=record.custom.widget.josh_van}}</td> </div>
+</tr><tr>
+{{record.custom.widget.gar_van['_type'] = 'number'}}
+<div> <th> George Sr: </th> <td>{{=record.custom.widget.gar_van}}</td> </div>
+</tr><tr>
+{{record.custom.widget.john_van['_type'] = 'number'}}
+<div> <th> John: </th> <td>{{=record.custom.widget.john_van}}</td> </div>
+</tr><tr>
+{{record.custom.widget.shop['_type'] = 'number'}}
+<div> <th> Shop: </th> <td>{{=record.custom.widget.shop}}</td> </div>
+</tr>
+<tr>
+<div> <th> Stock: </th> <td>{{=total}}</td> </div>
+</tr>
+</table>
+</fieldset>
+{{=record.custom.submit}}
+{{=record.custom.end}}
+
+{{else:}}
+{{=record}}
+{{pass}}
+<!-- {{=record}}  -->
+

@@ -1,0 +1,14 @@
+{{extend 'plugin_jqmobile/layout.html'}}
+{{if row:}}
+{{=record.custom.begin}}
+<div> <strong> Make: </strong> {{=record.custom.widget.manuf}} </div>
+<div> <strong> Part Number: </strong> {{=record.custom.widget.partnum}} </div>
+<div> <strong> Description: </strong> {{=record.custom.widget.description}} </div>
+<div> <strong> Wholsale Price: </strong> {{=record.custom.widget.whol_price}} </div>
+<div> <strong> Retail Price: </strong> {{=record.custom.widget.ret_price}} </div>
+{{record.custom.widget.stock['_type'] = 'number'}}
+<div> <strong> Stock: </strong> {{=record.custom.widget.stock}} </div>
+{{=record.custom.end}}
+{{else:}}
+{{=record}}
+{{pass}}

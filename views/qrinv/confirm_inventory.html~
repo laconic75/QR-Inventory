@@ -1,0 +1,17 @@
+{{extend 'plugin_jqmobilelayout.html'}}
+
+{{=record}}
+<div id="qrcode">
+{{=image}}
+</div>
+
+<div id="print_button">
+<button>Print</button>
+</div>
+
+<script>
+
+$("div#print_button").click(function(){
+    $("div#qrcode").printArea({mode: "iframe"});
+});
+</script>

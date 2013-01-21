@@ -1,0 +1,78 @@
+timestamp: 2012-07-27T15:33:41.657518
+CREATE TABLE auth_user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name CHAR(128),
+    last_name CHAR(128),
+    email CHAR(512),
+    password CHAR(512),
+    registration_key CHAR(512),
+    reset_password_key CHAR(512)
+);
+success!
+timestamp: 2012-07-27T15:33:41.844319
+CREATE TABLE auth_group(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    role CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2012-07-27T15:33:41.852483
+CREATE TABLE auth_membership(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    group_id INTEGER REFERENCES auth_group(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2012-07-27T15:33:41.864905
+CREATE TABLE auth_permission(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_id INTEGER REFERENCES auth_group(id) ON DELETE CASCADE,
+    name CHAR(512),
+    table_name CHAR(512),
+    record_id INTEGER
+);
+success!
+timestamp: 2012-07-27T15:33:41.872756
+CREATE TABLE auth_event(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    time_stamp TIMESTAMP,
+    client_ip CHAR(512),
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    origin CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2012-07-27T15:33:41.886760
+CREATE TABLE auth_cas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    created_on TIMESTAMP,
+    url CHAR(512),
+    uuid CHAR(512)
+);
+success!
+timestamp: 2012-07-27T15:40:24.412031
+ALTER TABLE auth_user ADD registration_id CHAR(512);
+timestamp: 2012-07-27T15:40:24.437447
+ALTER TABLE auth_cas ADD service CHAR(512);
+timestamp: 2012-07-27T15:40:24.442705
+ALTER TABLE auth_cas ADD renew CHAR(1);
+timestamp: 2012-07-27T15:40:24.448609
+ALTER TABLE auth_cas ADD ticket CHAR(512);
+timestamp: 2012-07-27T15:51:23.473931
+CREATE TABLE invent(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    partnum CHAR(512) UNIQUE,
+    manuf CHAR(512),
+    description CHAR(512),
+    whol_price DOUBLE,
+    ret_price DOUBLE,
+    grjr_van INTEGER,
+    josh_van INTEGER,
+    gar_van INTEGER,
+    john_van INTEGER,
+    shop INTEGER,
+    total_stock CHAR(512),
+    locaton CHAR(512)
+);
+success!

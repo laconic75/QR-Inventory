@@ -1,0 +1,61 @@
+{{extend 'layout.html'}}
+{{=form.custom.begin}}
+<fieldset>
+<legend>Description</legend>
+<table>
+<tr>
+<div> <th> Make:</th>  <td>{{=form.custom.widget.manuf}}</td> </div>
+</tr>
+<tr>
+<div> <th> Part Number: </th> <td> {{=form.custom.widget.partnum}}</td> </div>
+</tr>
+<tr>
+<div> <th> Description: </th> <td> {{=form.custom.widget.description}}</td> </div>
+</tr>
+<tr>
+<div> <th> Wholsale Price: </th> <td> {{=form.custom.widget.whol_price}}</td> </div>
+</tr>
+<tr>
+<div> <th> Retail Price: </th> <td> {{=form.custom.widget.ret_price}}</td> </div>
+</tr>
+</table>
+</fieldset>
+<fieldset>
+<legend>Stock</legend>
+<table>
+<tr>
+<!--  {{form.custom.widget.grjr_van['_type'] = 'number'}} -->
+<div> <th> George Jr: </th> <td>{{=form.custom.widget.grjr_van}}</td> </div>
+</tr><tr>
+<!--  {{form.custom.widget.josh_van['_type'] = 'number'}} -->
+<div> <th> Josh: </th> <td>{{=form.custom.widget.josh_van}}</td> </div>
+</tr><tr>
+<!-- {{form.custom.widget.gar_van['_type'] = 'number'}} -->
+<div> <th> George Sr: </th> <td>{{=form.custom.widget.gar_van}}</td> </div>
+</tr><tr>
+<!-- {{form.custom.widget.john_van['_type'] = 'number'}} -->
+<div> <th> John: </th> <td>{{=form.custom.widget.john_van}}</td> </div>
+</tr><tr>
+<!-- {{form.custom.widget.shop['_type'] = 'number'}} -->
+<div> <th> Shop: </th> <td>{{=form.custom.widget.shop}}</td> </div>
+</tr>
+</table>
+</fieldset>
+{{=form.custom.submit}}
+{{=form.custom.end}}
+
+<script type="text/javascript">
+    $(function () {
+        $("#invent_grjr_van").SpinnerControl({
+        typedata: { min:0, max:50, interval:1 }, looping:true 
+        });
+    })
+</script>
+
+<input class="string" id="test" name="manuf" type="text" value="" />
+
+<script type="text/javascript">
+    $(function () {
+        $("#test").SpinnerControl();
+    })
+</script>
